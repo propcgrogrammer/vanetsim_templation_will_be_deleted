@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="VanetSinulator">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/VanetSinulator_jar/VanetSinulator.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
