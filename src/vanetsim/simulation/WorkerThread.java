@@ -8,8 +8,10 @@ import vanetsim.ErrorLog;
 import vanetsim.debug.Debug;
 import vanetsim.gui.Renderer;
 import vanetsim.localization.Messages;
+import vanetsim.map.JunctionQueue;
 import vanetsim.map.Node;
 import vanetsim.map.Region;
+import vanetsim.map.Street;
 import vanetsim.scenario.Vehicle;
 import vanetsim.scenario.RSU;
 
@@ -165,11 +167,27 @@ public final class WorkerThread extends Thread {
 					vehicleSubarray = vehicles[i];
 					length = vehicleSubarray.length;
 					for(j = 0; j < length; ++j){
-						vehicleSubarray[j].adjustSpeed(timePerStep_);
-						String vehicleID = vehicleSubarray[j].getHexID();
-						String streetName = vehicleSubarray[j].getCurStreet().getName();
 
-						System.out.println("車輛資訊 ＋ID :"+vehicleID+" || +所在街道 ："+streetName);
+						Vehicle veh = vehicleSubarray[j];
+
+						veh.adjustSpeed(timePerStep_);
+						String vehicleID = veh.getHexID();
+						Street street = veh.getCurStreet();
+						String streetName = street.getName();
+
+						for(Vehicle v : street.getQueue_().getVehicles())
+						{
+							if(!v.equals(veh))  street.getQueue_().addVehicle(veh);
+						}
+
+
+						System.out.println("車輛資訊 ＋ID :"+vehicleID+" || +所在街道 ："+streetName
+						+ " || 車輛數 ："+ street.getQueue_().size());
+
+
+						//System.out.println("道路資訊 ＋名稱 :"+streetName+" || +車輛數 ："+street.getQueue_().size());
+
+
 					}
 				}
 				

@@ -74,6 +74,7 @@ public class TrafficLight {
 	/** Traffic Light Collections */
 	private Street[] streets_;
 
+
 	
 	/** Stores if a street is a priority street or not; used to distinguish between times. */
 	private boolean[] streetIsPriority_;
@@ -83,6 +84,10 @@ public class TrafficLight {
 	
 	/** The <code>Junction</code> this traffic light. */
 	private Junction junction_;
+
+	public Junction getJunction_() {
+		return junction_;
+	}
 
 	public JunctionQueue getJunctionQueuePriority3(){return junction_.getJunctionQueuePriority3();}
 	public JunctionQueue getJunctionQueuePriority4(){return junction_.getJunctionQueuePriority4();}

@@ -4,6 +4,8 @@ import vanetsim.debug.Debug;
 import vanetsim.gui.Renderer;
 import vanetsim.scenario.Vehicle;
 
+import java.util.ArrayList;
+
 /**
  * A queue for the vehicles waiting on a junction.
  */
@@ -18,6 +20,10 @@ public final class JunctionQueue{
 	
 	/** The vehicles in this queue. */
 	private Vehicle[] vehicles_;  public Vehicle[] getVehicles(){return vehicles_;};
+
+	private ArrayList<Vehicle> vehicleArrayList_ = new ArrayList<Vehicle>();
+	public ArrayList<Vehicle> getVehicleArrayList(){return vehicleArrayList_;}
+
 	
 	/** Since when (simulation time) the vehicles in this queue are waiting. */
 	private int[] waitingSince_;  public int[] getWitingSince(){return waitingSince_;};
@@ -27,6 +33,8 @@ public final class JunctionQueue{
 	
 	/** The size of the vehicles in this queue. */
 	private int size_ = 0;
+
+
 	
 	/**
 	 * Constructor.

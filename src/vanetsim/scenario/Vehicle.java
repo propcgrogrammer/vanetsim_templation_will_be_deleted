@@ -28,8 +28,12 @@ import vanetsim.scenario.messages.PenaltyMessage;
  * A vehicle which can move and communicate (if wifi is enabled).
  */
 public class Vehicle extends LaneObject{
-	
+
+
+
 	private static int PRIORITY = 0;
+
+
 	
 	public void setPriorityInc(){PRIORITY++;}
 	public void resetPriority(){PRIORITY = 0;}

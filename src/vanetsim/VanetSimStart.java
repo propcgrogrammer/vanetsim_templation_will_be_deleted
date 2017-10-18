@@ -175,7 +175,7 @@ public final class VanetSimStart implements Runnable {
 		vehicleTextArea_ = new JTextArea();
 		vehicleTextArea_.setBackground(Color.black);
 		vehicleTextArea_.setForeground(Color.white);
-		vehicleTextArea_.setFont(new Font("標楷體",Font.BOLD,20));
+		vehicleTextArea_.setFont(new Font("標楷體",Font.BOLD,12));
 	//	vehicleTextArea_.setEditable(false);
 		vehicleScrollPane_.add(vehicleTextArea_);
 		vehicleFrame_.add(vehicleScrollPane_);
@@ -194,7 +194,7 @@ public final class VanetSimStart implements Runnable {
 		trafficLightTextArea_ = new JTextArea();
 		trafficLightTextArea_.setBackground(Color.black);
 		trafficLightTextArea_.setForeground(Color.white);
-		trafficLightTextArea_.setFont(new Font("標楷體",Font.BOLD,20));
+		trafficLightTextArea_.setFont(new Font("標楷體",Font.BOLD,12));
 		trafficLightScrollPane_.add(trafficLightTextArea_);
 		trafficLightFrame_.add(trafficLightScrollPane_);
 		trafficLightTextArea_.setVisible(true);

@@ -18,6 +18,8 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import vanetsim.map.*;
+import vanetsim.map.Map;
 import vanetsim.statistics.PieChart;
 import vanetsim.statistics.Statistics;
 import vanetsim.statistics.StatisticsData;
@@ -31,13 +33,6 @@ import vanetsim.gui.controlpanels.SignalControlLabel;
 import vanetsim.gui.controlpanels.SignalControlPanel;
 import vanetsim.gui.controlpanels.SimulateControlPanel;
 import vanetsim.localization.Messages;
-import vanetsim.map.Junction;
-import vanetsim.map.Map;
-import vanetsim.map.MapHelper;
-import vanetsim.map.Node;
-import vanetsim.map.Region;
-import vanetsim.map.Street;
-import vanetsim.map.TrafficLight;
 import vanetsim.routing.WayPoint;
 import vanetsim.scenario.Vehicle;
 
@@ -273,6 +268,7 @@ public class MouseClickManager extends Thread{
 				sb.append("管轄路段：");
 				
 				Street[] streets = t.getStreets_();
+				Junction junction = t.getJunction_();
 				sb.append("端點 <----> ");
 				for(Street s : streets )
 				{
@@ -280,10 +276,14 @@ public class MouseClickManager extends Thread{
 					if(!check.contains(name))
 					{
 						sb.append(s.getName().toString());
+						sb.append(" [ ");
+						sb.append(s.getQueue_().size());
+						sb.append(" ] ");
 						sb.append(" <----> ");
 						check.add(name);
 					}
 				}
+
 				sb.append("端點 \r\n");
 				
 			    
@@ -829,8 +829,9 @@ public class MouseClickManager extends Thread{
 			}
 			informationTextCht_.append(" 終點 \r\n");
 			informationTextCht_.append(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>\r\n");
-			
-			
+
+			//markedVehicle_.getCurStreet().getQueue_().addVehicle(markedVehicle_);
+
 			informationTextCht_.append("車輛目前位置：");
 			informationTextCht_.append(markedVehicle_.getCurStreet().getName());
 			informationTextCht_.append("\r\n");

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import vanetsim.debug.Debug;
 import vanetsim.scenario.LaneContainer;
 import vanetsim.scenario.LaneObject;
+import vanetsim.scenario.Vehicle;
 
 
 /**
@@ -14,11 +15,16 @@ import vanetsim.scenario.LaneObject;
  */
 public final class Street {
 
-	private JunctionQueue queue_;
+	/*
+	   add JunctionQueue on Street different from original position Junction
+	   update on 2017/10/17
+	 */
+	private JunctionQueue queue_ = new JunctionQueue();
 
 	public JunctionQueue getQueue_() {
 		return queue_;
 	}
+
 
 	/** The length in cm. Though this is a redundant information, it is cached here in order to improve performance! */
 	private final double length_;
