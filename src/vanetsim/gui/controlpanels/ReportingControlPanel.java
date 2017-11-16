@@ -135,11 +135,11 @@ public final class ReportingControlPanel extends JPanel implements ActionListene
 	 * Constructor for this control panel.
 	 */
 	public ReportingControlPanel(){
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "ReportingControlPanel())", true);
-		
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "ReportingControlPanel())", Debug.ISLOGGED);
+
+
 		setLayout(new GridBagLayout());
 		
 		
@@ -297,6 +297,10 @@ public final class ReportingControlPanel extends JPanel implements ActionListene
 	 * @param timePerStep	the time of one simulation step in milliseconds
 	 */
 	public void checkUpdates(int timePerStep){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"checkUpdates(int timePerStep)",Debug.ISLOGGED);
+
+
 		if(updateStatistics_ || statisticsCountdown_ == -1){
 			statisticsCountdown_ -= timePerStep;
 			if(statisticsCountdown_ < 1){
@@ -366,6 +370,10 @@ public final class ReportingControlPanel extends JPanel implements ActionListene
 	 * Updates the statistics. You need to make sure that the vehicles are not modified while executing this.
 	 */
 	private final void updateStatistics(){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"updateStatistics()",Debug.ISLOGGED);
+
+
 		statisticsText_.setLength(0); 	//reset
 		
 		Region[][] regions = Map.getInstance().getRegions();

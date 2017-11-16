@@ -25,8 +25,8 @@ public final class EventList{
 	 * Empty, private constructor in order to disable instancing.
 	 */
 	private EventList(){
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "EventList()", true);
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "EventList()", Debug.ISLOGGED);
 		
 	}	
 
@@ -83,6 +83,9 @@ public final class EventList{
 	 * @return the an array list with all blocking events.
 	 */
 	public ArrayList<StartBlocking> getAllBlockingsArrayList(){
+
+		Debug.callFunctionInfo(this.getClass().getName(), "getAllBlockingsArrayList()", Debug.ISLOGGED);
+
 		Iterator<Event> events = allEvents_.iterator();
 		ArrayList<StartBlocking> result = new ArrayList<StartBlocking>(16);
 		Event event;
@@ -101,6 +104,9 @@ public final class EventList{
 	 * @return the current events array list
 	 */
 	public ArrayList<StartBlocking> getCurrentBlockingsArrayList(){
+
+		Debug.callFunctionInfo(this.getClass().getName(), "getCurrentBlockingsArrayList()", Debug.ISLOGGED);
+
 		return currentBlockings_;
 	}
 
@@ -128,9 +134,10 @@ public final class EventList{
 	 * @param time the current absolute time of the simulation
 	 */
 	public void processEvents(int time){
-		
-		Debug.callFunctionInfo(this.getClass().getName(), "processEvents(int time)", true);
-		Debug.detailedInfo("use allEvents_ object to store all coming events", true);
+
+
+		Debug.callFunctionInfo(this.getClass().getName(), "processEvents(int time)", Debug.ISLOGGED);
+		Debug.detailedInfo("use allEvents_ object to store all coming events", Debug.ISLOGGED);
 		
 		Event tmpEvent;
 		while(allEvents_.size() > 0){

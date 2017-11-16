@@ -81,10 +81,10 @@ public class EditSettingsControlPanel extends JPanel implements ItemListener, Pr
 	 * Constructor.
 	 */
 	public EditSettingsControlPanel(){
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "EditSettingsControlPanel()", true);
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "EditSettingsControlPanel()", Debug.ISLOGGED);
+
 		setLayout(new GridBagLayout());
 
 		// global layout settings

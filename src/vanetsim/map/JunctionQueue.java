@@ -40,10 +40,10 @@ public final class JunctionQueue{
 	 * Constructor.
 	 */
 	public JunctionQueue(){
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "JunctionQueue()", true);
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "JunctionQueue()", Debug.ISLOGGED);
+
 		vehicles_ = new Vehicle[2];
 		waitingSince_ = new int[2];
 		lastSeen_ = new int[2];

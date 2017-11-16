@@ -28,12 +28,12 @@ public final class StopBlocking extends Event{
 	 * @throws ParseException the parse exception
 	 */
 	public StopBlocking(int time, int x, int y) throws ParseException{
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "StopBlocking(int time, int x, int y)", true);
-		
-		
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "StopBlocking(int time, int x, int y)", Debug.ISLOGGED);
+
+
+
 		time_ = time;
 		color_ = new Color(9,115,33);
 		long dx, dy, distance, bestdistance = Long.MAX_VALUE;;

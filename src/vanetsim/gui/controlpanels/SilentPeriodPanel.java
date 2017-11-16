@@ -51,11 +51,11 @@ public class SilentPeriodPanel extends JPanel implements ActionListener, FocusLi
 	 * Constructor, creating GUI items.
 	 */
 	public SilentPeriodPanel(){
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "SilentPeriodPanel()", true);
-		
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "MixZonePanel())", Debug.ISLOGGED);
+
+
 		setLayout(new GridBagLayout());
 		
 		// global layout settings

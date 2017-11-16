@@ -116,10 +116,10 @@ public class EditVehicleControlPanel extends JPanel implements ActionListener, M
 	 * Constructor.
 	 */
 	public EditVehicleControlPanel(){
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "EditVehicleControlPanel()", true);
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "EditVehicleControlPanel()", Debug.ISLOGGED);
+
 		setLayout(new GridBagLayout());
 		
 		// global layout settings

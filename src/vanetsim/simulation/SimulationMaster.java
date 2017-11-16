@@ -82,7 +82,8 @@ public final class SimulationMaster extends Thread{
 	 * Instantiates a new simulation master.
 	 */
 	public SimulationMaster(){
-		Debug.whereru("SimulationMaster", Debug.ISLOGGED);
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
 		Debug.debugInfo(this.getClass().getName(), "SimulationMaster()", Debug.ISLOGGED);
 	}
 
@@ -114,7 +115,7 @@ public final class SimulationMaster extends Thread{
 	 * subthreads (workers) will go to sleep and the Renderer is notified to get inactive.
 	 */  
 	public synchronized void stopThread(){
-		
+
 		Debug.callFunctionInfo(this.getClass().getName(), "stopThread()", Debug.ISLOGGED);
 		Debug.ThreadInfo(this, Debug.ISLOGGED);
 		
@@ -289,7 +290,7 @@ public final class SimulationMaster extends Thread{
 	 * initiates the render process and statistics updates.
 	 */
 	public void run() {
-		
+
 		Debug.callFunctionInfo(this.getClass().getName(), "run()", Debug.ISLOGGED);
 		Debug.ThreadInfo(this, Debug.ISLOGGED);
 		

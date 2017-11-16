@@ -69,10 +69,10 @@ public class EditLogControlPanel extends JPanel implements  FocusListener, Actio
 	 * Constructor, creating GUI items.
 	 */
 	public EditLogControlPanel() {
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "EditLogControlPanel()", true);
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "EditLogControlPanel()", Debug.ISLOGGED);
+
 		setLayout(new GridBagLayout());
 		
 		// global layout settings

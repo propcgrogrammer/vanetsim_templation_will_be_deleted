@@ -80,10 +80,10 @@ public final class SimulateControlPanel extends JPanel implements ActionListener
 	 * Constructor for this control panel.
 	 */
 	public SimulateControlPanel(){
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "SimulateControlPanel()", true);
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "SimulateControlPanel()",Debug.ISLOGGED);
+
 		setLayout(new GridBagLayout());
 		
 		// global layout settings
@@ -236,6 +236,8 @@ public final class SimulateControlPanel extends JPanel implements ActionListener
 	 * @param zoom the new zoom value
 	 */
 	public void setZoomValue(int zoom){
+		Debug.callFunctionInfo(this.getClass().getName(),"setZoomValue(int zoom)",Debug.ISLOGGED);
+
 		dontReRenderZoom_ = true;
 		zoomSlider_.setValue(zoom);
 	}

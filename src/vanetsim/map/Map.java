@@ -50,6 +50,7 @@ import vanetsim.scenario.RSU;
 public class Map{
 
 	public static boolean isLoadFinish = false;
+
 	/** The only instance of this class (singleton). */
 	private static final Map INSTANCE = new Map();
 	
@@ -90,8 +91,8 @@ public class Map{
 	 * Empty, private constructor in order to disable instancing.
 	 */
 	private Map() {
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "Map()", true);
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "Map()", Debug.ISLOGGED);
 	}	
 
 	/**
@@ -112,6 +113,10 @@ public class Map{
 	 * @param regionHeight	the height of a region
 	 */
 	public void initNewMap(int width, int height, int regionWidth, int regionHeight){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"initNewMap(int width, int height, int regionWidth, int regionHeight)",Debug.ISLOGGED);
+
+
 		int i, j;
 		if(ready_ == true){
 			ready_ = false;
@@ -123,6 +128,7 @@ public class Map{
 			
 			A_Star_LookupTableFactory.clear();
 			Node.resetNodeID();
+
 			width_ = width;
 			height_ = height;
 			regionWidth_ = regionWidth;
@@ -176,7 +182,9 @@ public class Map{
 	 */
 	public void signalMapLoaded(){
 		// optimize the ArrayLists in the regions in order to free wasted memory
-		
+		Debug.callFunctionInfo(this.getClass().getName(),"signalMapLoaded()",Debug.ISLOGGED);
+
+
 		for(int i = 0; i < regionCountX_; ++i){
 			for(int j = 0; j < regionCountY_; ++j){
 //				VanetSimStart.getTextArea().append(".\n");
@@ -384,6 +392,7 @@ public class Map{
 		if(!Renderer.getInstance().isConsoleStart())VanetSimStart.setProgressBar(false);
 		signalMapLoaded();
 		ErrorLog.log(Messages.getString("Map.loadingFinished"), 3, getClass().getName(), "load", null); //$NON-NLS-1$ //$NON-NLS-2$	
+
 	}
 
 
@@ -465,6 +474,7 @@ public class Map{
 			filestream.close();
 		}catch (Exception e) {ErrorLog.log(Messages.getString("Map.errorSavingMap") , 6, getClass().getName(), "save", e);} //$NON-NLS-1$ //$NON-NLS-2$
 		if(!Renderer.getInstance().isConsoleStart())VanetSimStart.setProgressBar(false);
+
 	}
 
 	/**

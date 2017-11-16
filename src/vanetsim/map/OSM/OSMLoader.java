@@ -47,8 +47,8 @@ public final class OSMLoader{
 	 * Empty, private constructor in order to disable instancing.
 	 */
 	private OSMLoader() {
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "OSMLoader()", true);
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "OSMLoader()", Debug.ISLOGGED);
 	}
 	
 	

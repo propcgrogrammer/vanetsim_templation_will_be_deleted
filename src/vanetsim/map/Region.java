@@ -1,6 +1,7 @@
 package vanetsim.map;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import vanetsim.VanetSimStart;
 import vanetsim.debug.Debug;
@@ -84,10 +85,10 @@ public final class Region{
 	 * @param lowerBoundary	the coordinate of the lower boundary
 	 */
 	public Region(int x, int y, int leftBoundary, int rightBoundary, int upperBoundary, int lowerBoundary){
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "Region(int x, int y, int leftBoundary, int rightBoundary, int upperBoundary, int lowerBoundary)", true);
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "Region(int x, int y, int leftBoundary, int rightBoundary, int upperBoundary, int lowerBoundary)", Debug.ISLOGGED);
+
 		vehicles_ = new ArrayList<Vehicle>(1);
 		x_ = x;
 		y_ = y;
@@ -95,6 +96,16 @@ public final class Region{
 		rightBoundary_ = rightBoundary;
 		upperBoundary_ = upperBoundary;
 		lowerBoundary_ = lowerBoundary;
+
+		HashMap map = new HashMap<String, String>();
+		map.put("x",String.valueOf(x_));
+		map.put("y",String.valueOf(y_));
+		map.put("leftBoundary",String.valueOf(leftBoundary_));
+		map.put("rightBoundary",String.valueOf(rightBoundary_));
+		map.put("upperBoundary",String.valueOf(upperBoundary_));
+		map.put("lowerBoundary",String.valueOf(lowerBoundary_));
+
+		Debug.debugInfo(map, Debug.ISLOGGED);
 	}
 	
 	/**
@@ -317,6 +328,10 @@ public final class Region{
 	 * and what their priority streets are. Furthermore, mixing zones are generated.
 	 */
 	public ArrayList<TrafficLight> calculateJunctions(){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"calculateJunctions()",Debug.ISLOGGED);
+
+
 		if(Renderer.getInstance().isAutoAddMixZones()) mixZoneNodes_ = new Node[0];
 		
 		ArrayList<TrafficLight> trafficLights = new ArrayList<TrafficLight>();

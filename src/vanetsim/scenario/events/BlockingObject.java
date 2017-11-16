@@ -16,8 +16,8 @@ public class BlockingObject extends LaneObject{
 	 */
 	public BlockingObject(int lane, boolean direction, Street street, double position){
 		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "BlockingObject(int lane, boolean direction, Street street, double position)", true);
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "BlockingObject(int lane, boolean direction, Street street, double position)", Debug.ISLOGGED);
 		
 		curLane_ = lane;
 		curDirection_ = direction;

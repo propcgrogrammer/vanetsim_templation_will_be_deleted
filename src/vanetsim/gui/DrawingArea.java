@@ -67,11 +67,11 @@ public final class DrawingArea extends JComponent implements MouseWheelListener,
 	 * @param drawManualBuffered	set to <code>true</code> to use a <code>BufferdImage</code> for drawing (manual DoubleBuffering)
 	 */
 	public DrawingArea(boolean useDoubleBuffer, boolean drawManualBuffered){
-		
-		
+
+
 		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
 		Debug.callFunctionInfo(this.getClass().getName(), "DrawingArea(boolean useDoubleBuffer, boolean drawManualBuffered)", Debug.ISLOGGED);
-		
+
 		drawManualBuffered_ = drawManualBuffered;
 		setBackground(Color.white);
 		setDoubleBuffered(useDoubleBuffer);
@@ -126,6 +126,10 @@ public final class DrawingArea extends JComponent implements MouseWheelListener,
 	 * Prepares all <code>BufferedImages</code> and notifies the {@link Renderer} of a new drawing area size.
 	 */
 	public void prepareBufferedImages(){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"prepareBufferedImages()",Debug.ISLOGGED);
+
+
 		if(streetsImage_ == null || getWidth() != streetsImage_.getWidth() || getHeight() != streetsImage_.getHeight()){	//prepare new image for streets ("static objects")
 			renderer_.setDrawHeight(getHeight());
 			renderer_.setDrawWidth(getWidth());

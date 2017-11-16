@@ -38,6 +38,9 @@ public final class ReRenderManager extends Thread{
 	 * Schedule a re-render-Operation.
 	 */
 	public void doReRender(){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"doReRender()",Debug.ISLOGGED);
+
 		doRender_ = true;
 	}
 	

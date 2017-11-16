@@ -27,9 +27,9 @@ public final class ProgressOverlay extends JDialog implements ActionListener{
 	 */
 	public ProgressOverlay(){		
 		super(VanetSimStart.getMainFrame());
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "ProgressOverlay()", true);
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "ProgressOverlay()", Debug.ISLOGGED);
 		
 		getRootPane().setWindowDecorationStyle(JRootPane.NONE); 
 		JProgressBar progressBar = new JProgressBar(0, 100);      

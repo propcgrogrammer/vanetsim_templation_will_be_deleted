@@ -30,6 +30,7 @@ import org.codehaus.staxmate.out.SMOutputElement;
 
 import vanetsim.ErrorLog;
 import vanetsim.VanetSimStart;
+import vanetsim.debug.Debug;
 import vanetsim.gui.Renderer;
 import vanetsim.gui.helpers.AttackLogWriter;
 import vanetsim.gui.helpers.MouseClickManager;
@@ -77,6 +78,10 @@ public final class Scenario{
 	 * Initializes a new (empty) scenario.
 	 */
 	public void initNewScenario(){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"initNewScenario()",Debug.ISLOGGED);
+
+
 		if(ready_ == true){
 			ready_ = false;
 			if(!Renderer.getInstance().isConsoleStart())VanetSimStart.getSimulationMaster().stopThread();

@@ -47,10 +47,10 @@ public final class StartBlocking extends Event{
 	 * @throws ParseException an exception indicating that creation wasn't successful
 	 */
 	public StartBlocking(int time, int x, int y, int direction, int lanes) throws ParseException{
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "StartBlocking(int time, int x, int y, int direction, int lanes)", true);
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "StartBlocking(int time, int x, int y, int direction, int lanes)", Debug.ISLOGGED);
+
 		time_ = time;
 		color_ = Color.red;
 		affectedDirection_ = direction;

@@ -113,9 +113,9 @@ public final class VanetSimStart implements Runnable {
 	private static TrafficLightPanel trafficLightPanel ; public static TrafficLightPanel getTrafficLightPanel(){return trafficLightPanel;}
 	
 	public VanetSimStart(){
-		
-		Debug.whereru("VanetSimStart", Debug.ISLOGGED);
-		Debug.callFunctionInfo("VanetSimStart", "VanetSimStart()", Debug.ISLOGGED);
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "VanetSimStart()", Debug.ISLOGGED);
 		
 	//	new Statistics("行車速率表").createResultFrame("time vs velocity");
 		
@@ -129,16 +129,18 @@ public final class VanetSimStart implements Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
-		
-		Debug.callFunctionInfo("VanetSimStart", "run()", Debug.ISLOGGED);
-		
+
+		Debug.callFunctionInfo(this.getClass().getName(), "run()", Debug.ISLOGGED);
+
 		Debug.detailedInfo("Thread which creates the GUI.", Debug.ISLOGGED);
-		
+
 		Debug.detailedInfo("creating MainFrame ...", Debug.ISLOGGED);
+
 		mainFrame_ = new JFrame();
 		mainFrame_.setTitle(Messages.getString("StartGUI.applicationtitle")); //$NON-NLS-1$
 		mainFrame_.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Debug.detailedInfo("create MainFrame finish", true);
+
+		Debug.detailedInfo("create MainFrame finish", Debug.ISLOGGED);
 		
 		
 		
@@ -290,15 +292,16 @@ public final class VanetSimStart implements Runnable {
 
 		simulationMaster_ = new SimulationMaster();
 		simulationMaster_.start();
+
 		Map.getInstance().initNewMap(100000, 100000, 10000, 10000);
 		Map.getInstance().signalMapLoaded();
 		ReRenderManager.getInstance().start();
 		
 		
-		MouseClickManager.getInstance().setDrawArea(drawarea);
-		MouseClickManager.getInstance().start();
+	//	MouseClickManager.getInstance().setDrawArea(drawarea);
+	//	MouseClickManager.getInstance().start();
 		
-		Debug.detailedInfo("use SimulationMaster、Map、ReRenderManager、MouseClickManager", Debug.ISLOGGED);
+	//	Debug.detailedInfo("use SimulationMaster、Map、ReRenderManager、MouseClickManager", Debug.ISLOGGED);
 		
 		
 	//	subFrame_.add(leftScrollPane_);
@@ -320,9 +323,9 @@ public final class VanetSimStart implements Runnable {
 	 * @return the constructed <code>DrawingArea</code>
 	 */
 	public static DrawingArea addComponentsToPane(Container container) {
-		
-		Debug.callFunctionInfo("VanetSimStart", "addComponentsToPane(Container container)", Debug.ISLOGGED);
-		
+
+		Debug.callFunctionInfo("VanetSimStart","addComponentsToPane(Container container)",Debug.ISLOGGED);
+
 		container.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 
@@ -354,6 +357,8 @@ public final class VanetSimStart implements Runnable {
 	 * @param state	<code>true</code> to display the progress bar, <code>false</code> to disable it
 	 */
 	public static void setProgressBar(boolean state){
+		Debug.callFunctionInfo("VanetSimStart","setProgressBar(boolean state)",Debug.ISLOGGED);
+
 		progressBar_.setVisible(state);
 	}
 	
@@ -363,6 +368,8 @@ public final class VanetSimStart implements Runnable {
 	 * @return the control panel
 	 */
 	public static MainControlPanel getMainControlPanel(){
+		Debug.callFunctionInfo("VanetSimStart","getMainControlPanel()",Debug.ISLOGGED);
+
 		return controlPanel_;
 	}
 

@@ -54,10 +54,10 @@ public final class MainControlPanel extends JPanel implements ChangeListener{
 	 * Constructor for the main control panel.
 	 */
 	public MainControlPanel(){
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "MainControlPanel()", true);
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "MainControlPanel()", Debug.ISLOGGED);
+
 		// Create the file chooser in a separate thread. This may take some seconds on Windows...
 		Debug.detailedInfo("Create the file chooser in a separate thread. This may take some seconds on Windows...", true);
 		
@@ -170,6 +170,8 @@ public final class MainControlPanel extends JPanel implements ChangeListener{
 	 * @return the control panel
 	 */
 	public SimulateControlPanel getSimulatePanel(){
+		Debug.callFunctionInfo(this.getClass().getName(),"getSimulatePanel()",Debug.ISLOGGED);
+
 		return simulatePanel_;
 	}
 
@@ -179,6 +181,8 @@ public final class MainControlPanel extends JPanel implements ChangeListener{
 	 * @return the control panel
 	 */
 	public EditControlPanel getEditPanel(){
+		Debug.callFunctionInfo(this.getClass().getName(),"getEditPanel()",Debug.ISLOGGED);
+
 		return editPanel_;
 	}
 	
@@ -188,6 +192,9 @@ public final class MainControlPanel extends JPanel implements ChangeListener{
 	 * @return the control panel
 	 */
 	public ReportingControlPanel getReportingPanel(){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"getReportingPanel()",Debug.ISLOGGED);
+
 		return reportingPanel_;
 	}
 	

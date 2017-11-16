@@ -29,6 +29,7 @@ import java.util.ArrayDeque;
 
 import javax.imageio.ImageIO;
 import vanetsim.ErrorLog;
+import vanetsim.debug.Debug;
 import vanetsim.localization.Messages;
 import vanetsim.map.Junction;
 import vanetsim.map.Map;
@@ -287,6 +288,9 @@ public final class Renderer{
 	 * @param g2d	the <code>Graphics2D</code> object on which rendering takes place
 	 */
 	public void drawMovingObjects(Graphics2D g2d){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"drawMovingObjects(Graphics2D g2d)",Debug.ISLOGGED);
+
 		Region[][] regions = map_.getRegions();
 		if(regions != null && map_.getReadyState() && (!simulationRunning_ || doPaintInitializedBySimulation_)){
 			int i, j, k, size;
@@ -591,6 +595,9 @@ public final class Renderer{
 	 * @param image	the <code>BufferedImage</code> on which rendering should be done
 	 */
 	public void drawScale(BufferedImage image){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"drawScale(BufferedImage image)",Debug.ISLOGGED);
+
 		Graphics2D g2d = image.createGraphics();
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		g2d.setColor(Color.white);
@@ -675,6 +682,9 @@ public final class Renderer{
 	 * @param image the <code>BufferedImage</code> on which rendering should be done
 	 */
 	public synchronized void drawStaticObjects(BufferedImage image){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"drawStaticObjects(BufferedImage image)",Debug.ISLOGGED);
+
 		Graphics2D g2d = image.createGraphics();
 		Region[][] regions = map_.getRegions();
 		
@@ -686,6 +696,7 @@ public final class Renderer{
 
 			//try to reuse image elements if possible (only possible when panning); this reduces rendering time by up to 50%!
 			if(!lastOverdrawn_ && (((panCountX_ == 1 || panCountX_ == -1) && panCountY_ == 0) || ((panCountY_ == 1 || panCountY_ == -1) && panCountX_ == 0))){	// only ONE change in ONE direction has happened since last render
+
 				//draw old image onto new one with an offset in x or y direction
 				g2d.drawImage(image, (int)Math.round(panCountX_*drawWidth_/2), (int)Math.round(panCountY_*drawHeight_/2), null, drawArea_);
 
@@ -831,6 +842,7 @@ public final class Renderer{
 					g2d.draw(layers.get(key));
 				}
 			}
+
 			//now create the layers. This second iteration step (only second one if antialiasing is on) is actually faster than mixing it into the first one!)
 			layers.clear();		// to store the layers of the map separated by color
 			lastEntry = 1;
@@ -1103,7 +1115,9 @@ public final class Renderer{
 	 * @param zoom the new zooming factor
 	 */
 	public synchronized void setMapZoom(double zoom){
-		
+
+		Debug.callFunctionInfo(this.getClass().getName(),"setMapZoom(double zoom)",Debug.ISLOGGED);
+
 		if(zoom > 0.0000045 && zoom < 0.5){		//limit zooming by mousewheel into range from 100km to 1m
 			zoom_ = zoom;
 			updateParams();
@@ -1167,6 +1181,10 @@ public final class Renderer{
 	 * should not matter a lot.
 	 */
 	public synchronized void updateParams(){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"updateParams()",Debug.ISLOGGED);
+
+
 		if(map_.getReadyState() == true){
 			transform_.setToScale(zoom_, zoom_);		// set the zoom
 			transform_.translate(-middleX_ + (drawWidth_ / (zoom_*2)), -middleY_ + (drawHeight_/(zoom_*2)));		// pan and correct center of screen
@@ -1233,6 +1251,10 @@ public final class Renderer{
 	 * @param forceRenderNow <code>true</code> to force an immediate update regardless of consistency considerations (should only be used by the {@link vanetsim.simulation.SimulationMaster})
 	 */
 	public void ReRender(boolean fullRender, boolean forceRenderNow){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"ReRender(boolean fullRender, boolean forceRenderNow)",Debug.ISLOGGED);
+
+
 		if(!isConsoleStart()){
 			if(fullRender) scheduleFullRender_ = true;
 			if (drawArea_ != null){
@@ -1304,6 +1326,9 @@ public final class Renderer{
 	 * @param running	<code>true</code> if a simulation is currently running, <code>false</code> if it's suspended
 	 */
 	public void notifySimulationRunning(boolean running){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"notifySimulationRunning(boolean running)",Debug.ISLOGGED);
+
 		simulationRunning_ = running;
 	}
 	
@@ -1357,6 +1382,9 @@ public final class Renderer{
 	 * @param y	the new y coordinate for the center of the viewable area
 	 */
 	public synchronized void setMiddle(int x, int y){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"setMiddle(int x, int y)",Debug.ISLOGGED);
+
 		middleX_ = x;
 		middleY_ = y;		
 		updateParams();
@@ -1368,6 +1396,10 @@ public final class Renderer{
 	 * @param drawArea 	the area on which this Renderer draws
 	 */
 	public void setDrawArea(DrawingArea drawArea){
+
+		Debug.callFunctionInfo(this.getClass().getName(),"setDrawArea(DrawingArea drawArea)",Debug.ISLOGGED);
+
+
 		drawArea_ = drawArea;
 	}
 
@@ -1404,6 +1436,8 @@ public final class Renderer{
 	 * @param barrier the barrier to use
 	 */
 	public void setBarrierForSimulationMaster(CyclicBarrier barrier){
+		Debug.callFunctionInfo(this.getClass().getName(),"setBarrierForSimulationMaster(CyclicBarrier barrier)",Debug.ISLOGGED);
+
 		barrierForSimulationMaster_ = barrier;
 	}
 

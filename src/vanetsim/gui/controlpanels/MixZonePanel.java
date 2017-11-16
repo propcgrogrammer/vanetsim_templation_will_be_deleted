@@ -77,12 +77,12 @@ public class MixZonePanel extends JPanel implements ActionListener{
 	 * Constructor, creating GUI items.
 	 */
 	public MixZonePanel(){
-		
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "MixZonePanel())", true);
-		
-		
+
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "MixZonePanel())", Debug.ISLOGGED);
+
+
 		setLayout(new GridBagLayout());
 		
 		// global layout settings

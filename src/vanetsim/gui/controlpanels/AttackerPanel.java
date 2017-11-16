@@ -59,10 +59,10 @@ public class AttackerPanel extends JPanel implements ActionListener{
 	 * Constructor, creating GUI items.
 	 */
 	public AttackerPanel(){
-		
-		Debug.whereru(this.getClass().getName(), true);
-		Debug.callFunctionInfo(this.getClass().getName(), "AttackerPanel()", true);
-		
+
+		Debug.whereru(this.getClass().getName(), Debug.ISLOGGED);
+		Debug.callFunctionInfo(this.getClass().getName(), "AttackerPanel()", Debug.ISLOGGED);
+
 		setLayout(new GridBagLayout());
 		
 		// global layout settings
