@@ -53,6 +53,7 @@ public final class WorkerThread extends Thread {
 		Debug.callFunctionInfo(this.getClass().getName(), "WorkerThread(Region[] ourRegions, int timePerStep)", Debug.ISLOGGED);
 		
 		setName("Worker startX:" + ourRegions[0].getX() + " startY:" + + ourRegions[0].getY()); //$NON-NLS-1$ //$NON-NLS-2$
+		Debug.ThreadInfo(this,Debug.ISLOGGED);
 		ourRegions_ = ourRegions;
 		timePerStep_ = timePerStep;
 		ErrorLog.log(Messages.getString("WorkerThread.workerCreated") + ourRegions_.length + Messages.getString("WorkerThread.regions"), 1, this.getName(), "Worker constructor", null); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
